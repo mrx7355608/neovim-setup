@@ -34,14 +34,13 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- netrw
 keymap.set("n", "<leader>pv", function()
-    vim.cmd(":Ex")
+	vim.cmd(":Ex")
 end)
 
 -- save file on ctrl-s
-keymap.set({ "n", "i" }, "<C-s>", function ()
-    vim.cmd(":w")
+keymap.set({ "n", "i" }, "<C-s>", function()
+	vim.cmd(":w")
 end)
-
 
 ----------------------
 -- Plugin Keybinds
@@ -52,6 +51,11 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window max
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+
+-- Format with null-ls
+keymap.set({ "i", "n" }, "<leader>cf", function()
+	vim.lsp.buf.format({ timeout = 2000 })
+end)
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -67,9 +71,9 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- vim fugitive bindings
-keymap.set("n", "<leader>og", vim.cmd.Git) 
+keymap.set("n", "<leader>og", vim.cmd.Git)
 keymap.set("n", "<leader>gp", function()
-    vim.cmd.Git("push")
+	vim.cmd.Git("push")
 end)
 
 -- folds
