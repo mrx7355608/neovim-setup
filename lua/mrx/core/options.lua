@@ -40,3 +40,4 @@ vim.g.foldmethod = indent
 vim.g.foldnestmax = 10
 vim.g.foldlevel = 2
 
+vim.cmd([[ set clipboard+=unnamedplus ]])
