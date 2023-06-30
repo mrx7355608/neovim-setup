@@ -21,9 +21,6 @@ return require("packer").startup(function()
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	-- Theme
-	use("bluz71/vim-nightfly-colors")
-
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
@@ -95,6 +92,9 @@ return require("packer").startup(function()
 		end,
 	})
 
+	-- vim multiline cursor
+	use("mg979/vim-visual-multi", { branch = "master" })
+
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
@@ -102,5 +102,23 @@ return require("packer").startup(function()
 		config = function()
 			require("toggleterm").setup()
 		end,
+	})
+
+	-- Themes
+	use("bluz71/vim-nightfly-colors")
+	use("tiagovla/tokyodark.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("folke/tokyonight.nvim")
+	use("yeddaif/neovim-purple")
+
+	-- Trouble nvim
+	use({
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
 	})
 end)
